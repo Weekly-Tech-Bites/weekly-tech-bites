@@ -1,0 +1,85 @@
+name: Update talks
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "talks/**/*.md"
+      - "scripts/update_readme.py"
+      - ".github/workflows/update-talks.yml"
+  workflow_dispatch:
+    inputs:
+      round:
+        description: "회차"
+        required: true
+        type: number
+      date:
+        description: "발표 날짜 (YYYY-MM-DD)"
+        required: true
+        type: string
+      topic:
+        description: "발표 주제"
+        required: true
+        type: string
+      blog:
+        description: "블로그 글 URL"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-talks-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Update checkout
+        run: git pull --rebase origin "$GITHUB_REF_NAME"
+
+      - name: Test README generator
+        run: python3 -m unittest discover -s tests
+
+      - name: Create talk file
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          TALK_MEMBER: ${{ github.actor }}
+          TALK_ROUND: ${{ inputs.round }}
+          TALK_DATE: ${{ inputs.date }}
+          TALK_TOPIC: ${{ inputs.topic }}
+          TALK_BLOG: ${{ inputs.blog }}
+        run: python3 scripts/create_talk.py
+
+      - name: Rebuild talks table
+        run: python3 scripts/update_readme.py
+
+      - name: Commit changes
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          TALK_MEMBER: ${{ github.actor }}
+        run: |
+          git add README.md
+
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            git add -- "talks/$TALK_MEMBER"
+          fi
+
+          if git diff --cached --quiet; then
+            echo "There are no changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "docs: update talks"
+          git push origin "HEAD:$GITHUB_REF_NAME"
