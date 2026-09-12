@@ -40,7 +40,10 @@ TechBites는 각자 관심 있는 기술을 공부하고, 개인 블로그에 �
 
 ## Register a Talk
 
-GitHub Actions 입력 폼으로 발표 정보를 등록할 수 있습니다.
+아래 사진과 같이 GitHub Actions 입력 폼으로 발표 정보를 등록할 수 있습니다.
+
+<img width="1665" height="681" alt="image" src="https://github.com/user-attachments/assets/ec52d8b3-95fd-4bc1-8be1-929eb89b6f58" />
+
 
 1. 발표에 사용할 글을 개인 블로그에 작성합니다.
 2. 저장소의 **Actions** 탭에서 `Update talks`를 선택합니다.
