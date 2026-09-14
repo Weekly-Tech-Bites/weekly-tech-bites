@@ -162,7 +162,7 @@ def escape_table_cell(value: str) -> str:
 
 def build_table(talks: list[Talk]) -> str:
     lines = [
-        "| 회차 | 날짜 | 발표자 | 주제 | 블로그 |",
+        "| 회차 | 날짜 | 발표자 | 주제 | 포스트 |",
         "| --- | --- | --- | --- | --- |",
     ]
 
