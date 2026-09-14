@@ -66,5 +66,6 @@ Markdown 파일을 직접 추가하는 방식도 사용 가능합니다. [TEMPLA
 | 회차 | 날짜 | 발표자 | 주제 | 포스트 |
 | --- | --- | --- | --- | --- |
 | 1 | 2026-09-15 | 이태경 | 낙관적 락과 비관적 락 | [글 보기](<https://etakyung.com/posts/Backend-1-%EB%82%99%EA%B4%80%EC%A0%81-%EB%9D%BD%EA%B3%BC-%EB%B9%84%EA%B4%80%EC%A0%81-%EB%9D%BD/>) |
+| 1 | 2026-09-15 | 박성아 | 연결이 비공개로 설정되어 있지 않습니다. - 인증서 검증 실패가 TLS handshake를 중단시키는 이유 | [글 보기](<https://haveagooddaysa.tistory.com/154>) |
 
 <!-- TALKS:END -->
