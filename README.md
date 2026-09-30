@@ -23,7 +23,7 @@ TechBites는 각자 관심 있는 기술을 공부하고, 개인 블로그에 �
 
 | Name | GitHub                                     | Talks                | Blog                                                              |
 | ---- | ------------------------------------------ | -------------------- | ----------------------------------------------------------------- |
-| 김광래  | [@kkr010128](https://github.com/kkr010128) | [모아보기](./talks/kkr010128/) | [hyn128.site](https://hyn128.site/?series=TechNotes)              |
+| 김도현  | [@hyn128](https://github.com/hyn128) | [모아보기](./talks/hyn128/) | [hyn128.site](https://hyn128.site/?series=TechNotes)              |
 | 이태경  | [@xoruddl](https://github.com/xoruddl)     | [모아보기](./talks/xoruddl/)   | [etakyung.com](https://etakyung.com)                              |
 | 박성아  | [@sungahbak](https://github.com/sungahbak) | [모아보기](./talks/sungahbak/) | [haveagooddaysa.tistory.com](https://haveagooddaysa.tistory.com/category/Techbites) |
 
