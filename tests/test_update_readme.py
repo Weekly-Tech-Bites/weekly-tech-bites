@@ -25,7 +25,7 @@ class UpdateReadmeTest(unittest.TestCase):
             f"{update_readme.END_MARKER}\n",
             encoding="utf-8",
         )
-        self.member_directory = self.root / "talks" / "kkr010128"
+        self.member_directory = self.root / "talks" / "hyn128"
         self.member_directory.mkdir(parents=True)
         self.presentation = self.member_directory / "talk.md"
 
@@ -106,7 +106,7 @@ class CreateTalkTest(unittest.TestCase):
 
     def create(self, **overrides: str) -> Path:
         values = {
-            "member_id": "kkr010128",
+            "member_id": "hyn128",
             "round_value": "3",
             "date_value": "2026-09-12",
             "topic_value": "Spring 트랜잭션 동작 원리",
@@ -118,10 +118,10 @@ class CreateTalkTest(unittest.TestCase):
     def test_form_inputs_create_valid_talk_file(self) -> None:
         destination = self.create()
 
-        self.assertEqual(destination.parent.name, "kkr010128")
+        self.assertEqual(destination.parent.name, "hyn128")
         self.assertEqual(destination.parent.parent.name, "talks")
         self.assertEqual(destination.name, "Spring-트랜잭션-동작-원리.md")
-        talk = update_readme.parse_talk(destination, self.root, "kkr010128")
+        talk = update_readme.parse_talk(destination, self.root, "hyn128")
         self.assertEqual(talk.round, 3)
         self.assertEqual(talk.topic, "Spring 트랜잭션 동작 원리")
         self.assertEqual(talk.blog, "https://example.com/spring-transaction")
