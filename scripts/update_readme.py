@@ -14,7 +14,7 @@ from urllib.parse import urlsplit
 
 
 MEMBERS = {
-    "kkr010128": "김광래",
+    "hyn128": "김도현",
     "xoruddl": "이태경",
     "sungahbak": "박성아",
 }
